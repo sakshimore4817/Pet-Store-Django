@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Index</title>
+    </head>
+<body>
+
+<form action='' method='post' enctype='multipart/form-data'>
+    {% csrf_token %}
+    {{updateform.as_p}}
+    <input type='submit' value='Update'/>
+</body>
+</html>

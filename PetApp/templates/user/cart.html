@@ -1,0 +1,58 @@
+{% extends 'user/base.html' %}
+{% block title %} Cart {% endblock %}
+
+{% block content %}
+{% if messages %}
+  
+{% for message in messages %}
+   <script>
+    alert('{{message}}')
+   </script>
+{% endfor %}
+
+{% endif %}
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-lg-9">
+            {% if cdata %}
+            <div class="row ">
+                {% for i in cdata %}
+                   <div class="col-lg-4 mt-4 col-md-6 col-sm-12">
+                    <a href="{% url 'details' i.id %}">
+                    <div class="shadow border">
+                        <figure>
+                            <img src={{i.images.url}} height="200" width="200"/>
+                        </figure>
+                        <figcaption>
+                           <h5>Name:{{i.pname}} <span>{{i.price}}</span></h5>
+
+                        </figcaption>
+                        <div>
+                            <form action="{% url 'removecart' i.id %}" method="post">
+                                {%csrf_token%}
+                                <input type="submit" value="Remove_from_cart" class="btn btn-danger"/>
+                            </form>
+                        </div>
+                    </div>
+                </a>
+                  </div>
+
+                {% endfor %}
+            </div>
+            {% else %}
+            <h1 class="empty">Empty cart</h1>
+            {% endif %}
+
+        </div>
+        <div class="col-lg-3">
+           <button class="btn btn-success" style="width: 200px;">Total amount:{{amt}}</button>
+           
+           <a href="{% url 'cartaddress' %}" class="btn btn-danger mt-4 col-md-6 col-sm-12">Buy Now</a>
+
+           
+
+        </div>
+        
+    </div>
+</div>
+{% endblock %}

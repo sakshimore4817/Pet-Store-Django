@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Sign up</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+        <style>
+            .s{
+                background-color: rgb(247, 243, 6);
+                color: blueviolet;
+                text-align: center;
+            }
+            h3{
+                color: green;
+            }
+        </style>
+    </head>
+    <body>
+       <div class="container mt-5 ">
+            {% if messages %}
+            {% for message in messages %}
+                <h3>{{message}}</h3>
+            {% endfor %}
+            {% endif %}
+            <div class="row ">
+                <div class="col-lg-8 offset-2 shadow border">
+                    <div class="s mt-3">
+                        {% if messages %}
+                        {% for message in messages %}
+                            <h1>{{message}}</h1>
+                        {% endfor %}
+                        {% else %}
+                        <h1>SignUp To Pet Store</h1>
+                        {% endif %}
+                        
+                    </div>
+                    <h1>SignUp as a trader</h1>
+                    <form action="" method="post">
+                        {%  csrf_token %}
+                        username:<input type="text" name="uname" class="form-control"/>
+                        Email:<input type="email" name="email" class="form-control"/>
+                        Password:<input type="password" name="pass" class="form-control"/>
+                        <input type="submit" class="btn btn-success mb-3 mt-3" value="Sign_Up"/>
+                    </form>
+                </div>
+
+            </div>
+       </div>
+        
+        <script src="" async defer></script>
+    </body>
+</html>

@@ -1,0 +1,48 @@
+{% extends 'user/base.html' %}
+
+{% block title %} Address {% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-6">
+            <div>
+                <form action="" method="post">
+                    {% csrf_token %}
+                    Customer_Name: <input type="text" name="cname" class="form-control"/>
+                    Flat_no: <input type="text" name="flat" class="form-control" />
+                    Landmark: <input type="text" name="landmark" class="form-control" />
+                    City: <input type="text" name="city" class="form-control" />
+                    State : <input type="text" name="state" class="form-control" />
+                    Pincode: <input type="number" name="pincode" class="form-control"/>
+                    Contact: <input type="phone" name="contact" class="form-control"/>
+                    Alternate_Contact: <input type="phone" name="acontact" class="form-control"/>
+                    <input type="submit" value="Add_Address" class="btn btn-success mt-3"/>
+
+                </form>
+            </div>
+
+        </div>
+        <div class="col-lg-6">
+                {% for i in adata %}
+                <div class="shadow border mt-2">
+                <h5>Name: {{i.name}}</h5>
+                <p>
+                    <span>{{i.flat}}</span>
+                    <span>{{i.landmark}}</span>
+                    <span>{{i.city}}</span>
+                    <span>{{i.pincode}}</span>
+                    <span>{{i.state}}</span>
+                    
+                </p>
+                <h5>contact: {{i.contact}}</h5>
+                <h5>Alternate_Contact:{{i.contactA}}</h5>
+                <a href="{% url 'preorder' i.id product_id  %}" class="btn btn-warning">Continue_with_this_address</a>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

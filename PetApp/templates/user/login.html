@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% load static %}
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Login Html Page</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-2">
+                    <div>
+                        <form action="" method="post">
+                            {%  csrf_token %}
+                            username:<input type="text" name="uname" class="form-control"/>
+                            Password:<input type="password" name="pass" class="form-control"/>
+                            <input type="submit" value="Login" class="btn btn-warning"/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="" async defer></script>
+    </body>
+</html>

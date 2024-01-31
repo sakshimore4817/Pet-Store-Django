@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <title>Index</title>
+   <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+</head>
+<body>
+   <div class="container">
+    <div class="row">
+        <div class="col-lg-6 offset-3">
+            <form action="" method="post">
+                Prooduct_Name:
+                <input type="text" namep="pname" class="form-control" />
+                Category:
+                <select id="cat" class="form-select" name="category">
+                    <option value="dog">Dog</option>
+                    <option value="cat">Cat</option>
+                </select>
+                Breed:
+                <select id="breed" name="breed" class="form-select">
+                    <option class="op" >american</option>
+
+                </select>
+                
+            </form>
+        </div>
+    </div>
+   </div>
+
+
+
+
+   <script>
+         function Start(){
+            data = ['parsian','indian']
+
+            for(i=0;i<data.length;i++){
+                var b = document.getElementById('breed')
+                b.innerHTML += '<option>'+ data[i]+'</option>'
+            }
+         }
+         Start()
+   </script>
+</body>
+</html>
